@@ -1,16 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   username: MyString
   password_digest: MyString
   avatar_url: MyString
 
 two:
+  id: 2
   username: MyString
   password_digest: MyString
   avatar_url: MyString
 
 three:
+  id: 3
   username: 'test'
   password_digest: MyString
   avatar_url: MyString
