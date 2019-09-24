@@ -2,10 +2,10 @@ class CommentSerializer < ActiveModel::Serializer
   attributes :id, :text, :user, :post
 
   def user
-    {id: object.self.user.id, username: object.self.user.username}
+    {id: object.user.id, username: object.user.username}
   end
 
   def post
-    {id: object.self.post.id, title: object.self.post.title}
+    {id: object.post.id, title: object.post.title}
   end
 end
