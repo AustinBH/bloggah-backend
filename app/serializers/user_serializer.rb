@@ -3,16 +3,12 @@ class UserSerializer < ActiveModel::Serializer
 
     def posts
     self.object.posts.map do |post|
-      {id: post.id,
-      title: post.title,
-      content: post.content}
+      {id: post.id}
     end
   end
   def comments
     self.object.comments.map do |comment|
-      {id: comment.id,
-      text: comment.text,
-      post: comment.post.title}
+      {id: comment.id}
     end
   end
 end
