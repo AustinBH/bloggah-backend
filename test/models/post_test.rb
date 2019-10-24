@@ -3,6 +3,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   setup do
     @post = posts(:one)
+    @user = users(:one)
   end
 
   test 'post has a user' do
@@ -19,6 +20,16 @@ class PostTest < ActiveSupport::TestCase
 
   test 'post has a title' do
     assert @post.title, 'Post does not have a title'
+  end
+
+  test 'post should not save without a title' do
+    post = Post.new(content: 'foo', user: @user)
+    assert !post.save, 'Post was saved without a title'
+  end
+
+  test 'post should not save without content' do
+    post = Post.new(title: 'foo', user: @user)
+    assert !post.save, 'Post was saved without content'
   end
 
   test 'post should not save without a user' do

@@ -29,6 +29,11 @@ class CommentTest < ActiveSupport::TestCase
     assert !comment.save, 'Comment was saved without a post'
   end
 
+  test 'comment should not save without text' do
+    comment = Comment.new(post: @post, user: @user)
+    assert !comment.save, 'Comment was saved without a post'
+  end
+
   test 'comment should not save with text longer than 500 characters' do
     text = 'aspidfbasodyufbasyudobfaiusdbfauisdbfiuasobdfiuoasbdfuiabsdfiubasdufbaosiudfbaiuosdbfiuasbdfiuabsduifbasuidfbasiudfbiuasbdfiuabsdfiubasdiufbasiudbfaiusdbfiuasbdfiuasbdfiuabsdfiubasduifbasiudfbasuidfbauisdbfiuasbdfiuasbdfuiabsdfuabsdfuioasbdfiubasudifbasuidfbaiusdbfiuasbdfiuasbdfiuabsdufiabsdfiuabsdufiasbdfiuasbdiufasbdiufabsudfbauisdfbasiudfbaiusdnfopawenfoi[wqmeioqnw pviuqwbvp0uqpweonfqiwpbueiqwoencpb iqwoefyipqbuwoine[qwbpiedvyuqwpieudoklajsdbofybiapusoidf[pubiawyvefbiuo[inawheufpiyvouawbipunoei[fjhp9uabsyodfiunoi[jash9udbiyfhjanosi[dfhuiabysdjnofi[jha9psbeufinoaw]j90eh[8fbupinoasmdj9]0hf[uabpsniodjf[h8asudiojf[ah89pusbdfinhpag7oyebovyuabsdyfuvblasipdfoybahlsiudfasdubfyoabps[pd]fj90[wniofmj09[ausidf]]]]]]]]]];nqwpebiucyvqweuoi'
     comment = Comment.new(text: text, user: @user, post: @post)
